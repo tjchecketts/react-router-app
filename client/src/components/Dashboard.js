@@ -13,17 +13,15 @@ class Dashboard extends React.Component {
   }
 
   show = () => (
-    <ul>
-      {
-        this.state.products.map( p =>
-          <li key={p.id}>
-            <Link to={`/products/${p.id}`}>
-              {p.name}
-            </Link>
-          </li>
-        )
-      }
-    </ul>
+    <div>
+      {this.state.products.map( p =>
+        <div key={p.id}>
+          <Link to={`/products/${p.id}`}>
+            {p.name}
+          </Link>
+        </div>
+      )}
+    </div>
   )
 
   submit = (product) => {
@@ -45,9 +43,9 @@ class Dashboard extends React.Component {
     const { showForm } = this.state;
     return(
       <div>
-        <h2>Products</h2>
+        <h2>Our Products</h2>
         <button onClick={this.toggleForm}>
-          { showForm ? 'Hide' : 'Show Form'}
+          { showForm ? 'Hide Form' : 'New Item'}
         </button>
         { showForm ? this.form() : this.show() }
       </div>

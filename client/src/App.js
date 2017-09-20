@@ -8,9 +8,10 @@ import Login from './components/Login';
 import Dashboard from './components/Dashboard';
 import Product from './components/Product';
 import ProtectedRoute from './components/ProtectedRoute';
+import './App.css';
 
 const App = () => (
-  <div>
+  <div class="background">
     <Navbar />
     <Switch>
       <Route exact path="/" component={Home} />

@@ -3,7 +3,7 @@ import { login } from '../fakeAuth';
 
 const Login = ({ history }) => (
   <div>
-    <h3>Login</h3>
+    <h1>Login</h1>
     <button onClick={ () => {
         login()
         history.push('/dashboard')
