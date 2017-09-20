@@ -20,7 +20,7 @@ class Api::ProductsController < ApplicationController
     if @api_product.save
       render json: @api_product, status: :created
     else
-      render json: @api_product.errors, status: :unprocessable_entity
+      render json: { errors: @api_product.errors.full_messages.join(',') }, status: :unprocessable_entity
     end
   end
 
