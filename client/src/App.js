@@ -6,6 +6,7 @@ import NoMatch from './components/NoMatch';
 import Navbar from './components/Navbar';
 import Login from './components/Login';
 import Dashboard from './components/Dashboard';
+import Product from './components/Product';
 
 const App = () => (
   <div>
@@ -15,6 +16,7 @@ const App = () => (
       <Route path="/about" component={About} />
       <Route path="/login" component={Login} />
       <Route path="/dashboard" component={Dashboard} />
+      <Route path="/products/:id" component={Product} />
       {/* needs to always be on the bottom */}
       <Route component={NoMatch} />
     </Switch>

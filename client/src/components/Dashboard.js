@@ -1,16 +1,32 @@
 import React from 'react';
-import { Redirect } from 'react-router-dom';
+import { Redirect, Link } from 'react-router-dom';
 import { isAuthenticated } from '../fakeAuth';
+import axios from 'axios'
 
-const Dashboard = () => {
-  if (isAuthenticated()) {
-    return (
-      <div>
-        <h3>You are logged in!</h3>
-      </div>
-    )
-  } else {
-    return <Redirect to="/login" />
+class Dashboard extends React.Component {
+  state = { products: [] }
+
+  componentDidMount() {
+    axios.get('/api/products')
+      .then( res => this.setState({ products: res.data }) )
+  }
+
+  render() {
+    let { products } = this.state;
+    if (isAuthenticated()) {
+      return (
+        <ul>
+          { products.map( p =>
+              <li key={p.id}>
+                <Link to={`/products/${p.id}`}>{p.name}</Link>
+              </li>
+            )
+          }
+        </ul>
+      )
+    } else {
+      return <Redirect to="/login" />
+    }
   }
 }
 
