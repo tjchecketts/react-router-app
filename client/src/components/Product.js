@@ -13,10 +13,10 @@ class Product extends React.Component {
     let { product: { name, description, price, department }} = this.state;
     return (
       <div>
-        <h1>{name}</h1>
-        <h3>{description}</h3>
-        <h3>${price}</h3>
-        <h3>{department}</h3>
+        <h1>Name: {name}</h1>
+        <h3>Description: {description}</h3>
+        <h3>Price: ${price}</h3>
+        <h3>Department: {department}</h3>
       </div>
     )
   }

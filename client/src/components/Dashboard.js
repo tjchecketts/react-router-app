@@ -13,7 +13,6 @@ class Dashboard extends React.Component {
 
   render() {
     let { products } = this.state;
-    if (isAuthenticated()) {
       return (
         <ul>
           { products.map( p =>
@@ -24,10 +23,7 @@ class Dashboard extends React.Component {
           }
         </ul>
       )
-    } else {
-      return <Redirect to="/login" />
-    }
+    } 
   }
-}
 
 export default Dashboard;

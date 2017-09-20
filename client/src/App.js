@@ -7,6 +7,7 @@ import Navbar from './components/Navbar';
 import Login from './components/Login';
 import Dashboard from './components/Dashboard';
 import Product from './components/Product';
+import ProtectedRoute from './components/ProtectedRoute';
 
 const App = () => (
   <div>
@@ -15,8 +16,8 @@ const App = () => (
       <Route exact path="/" component={Home} />
       <Route path="/about" component={About} />
       <Route path="/login" component={Login} />
-      <Route path="/dashboard" component={Dashboard} />
-      <Route path="/products/:id" component={Product} />
+      <ProtectedRoute path="/dashboard" component={Dashboard} />
+      <ProtectedRoute path="/products/:id" component={Product} />
       {/* needs to always be on the bottom */}
       <Route component={NoMatch} />
     </Switch>
