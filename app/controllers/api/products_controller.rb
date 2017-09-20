@@ -3,7 +3,7 @@ class Api::ProductsController < ApplicationController
 
   # GET /api/products
   def index
-    @api_products = Api::Product.all
+    @api_products = Product.all
 
     render json: @api_products
   end
@@ -15,10 +15,10 @@ class Api::ProductsController < ApplicationController
 
   # POST /api/products
   def create
-    @api_product = Api::Product.new(api_product_params)
+    @api_product = Product.new(api_product_params)
 
     if @api_product.save
-      render json: @api_product, status: :created, location: @api_product
+      render json: @api_product, status: :created
     else
       render json: @api_product.errors, status: :unprocessable_entity
     end
@@ -41,11 +41,11 @@ class Api::ProductsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_api_product
-      @api_product = Api::Product.find(params[:id])
+      @api_product = Product.find(params[:id])
     end
 
     # Only allow a trusted parameter "white list" through.
     def api_product_params
-      params.fetch(:api_product, {})
+      params.fetch(:product).permit(:name, :description, :price, :department)
     end
 end
